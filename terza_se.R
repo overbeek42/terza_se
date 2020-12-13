@@ -41,5 +41,5 @@ terza_se <- function(stage2, stage1, stage1_coef = "pred_stage1", robust = T) {
   # pvalues <- 2 * pnorm(-1*abs(tstats))
   # # estimates with 95% CI limits
   # cbind(beta, beta - qt(.975, stage2$df.null)*ses, beta + 1.96*ses)
-  return(ses)
+  return(d22)
 }

@@ -2,6 +2,7 @@
 terza_se <- function(stage2, stage1, stage1_coef = "pred_stage1", robust = T) {
   # first stage
   expWalpha <- fitted.values(stage1) # xb
+  expWalpha <- expWalpha[!is.na(expWalpha)]
   alpha <- coef(stage1)
   
   # alternative terza standard errors using robust first and second stage SEs
@@ -14,6 +15,8 @@ terza_se <- function(stage2, stage1, stage1_coef = "pred_stage1", robust = T) {
   
   # TSRI
   expXbeta <- fitted.values(stage2)
+  expXbeta <- expXbeta[ !is.na(expXbeta)]
+  
   beta <- coef(stage2)
   if(robust) {
     require(sandwich)
